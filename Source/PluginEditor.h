@@ -10,7 +10,7 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
-#include "Components\ContainerComponent.h"
+#include "ContainerComponent.h"
 #include "RandomComposerDefaultLookAndFeel.h"
 #include "Metronome.h"
 
