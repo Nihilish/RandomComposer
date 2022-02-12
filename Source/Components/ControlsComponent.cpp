@@ -13,7 +13,6 @@
 #include "ControlsComponent.h"
 #include "Colours.h"
 
-//==================================================================================================================
 ControlsComponent::ControlsComponent()
 {
     formatLabel(m_ModesText);

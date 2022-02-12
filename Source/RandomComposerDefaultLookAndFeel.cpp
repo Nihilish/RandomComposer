@@ -9,6 +9,7 @@
 */
 
 #include "RandomComposerDefaultLookAndFeel.h"
+
 #include "Colours.h"
 
 RandomComposerDefaultLookAndFeel::RandomComposerDefaultLookAndFeel()

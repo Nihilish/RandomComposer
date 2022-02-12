@@ -1,7 +1,20 @@
+/*
+  ==================================================================================================================
+
+	Scale.cpp
+	Created: 03 Feb 2022 9:09:55pm
+	Author:  Nihilish
+
+  ==================================================================================================================
+*/
+
 #include "Scale.h"
-#include "Defaults.h"
+
 #include <stdexcept>
 #include <iostream>
+
+#include "Defaults.h"
+
 
 Scale::Scale() :
 	m_Key(static_cast<Key>(app::Defaults::defaultKey)),
@@ -14,10 +27,28 @@ Scale::~Scale()
 {
 }
 
-int Scale::getNoteFromDegree(int degree)
+/// <summary>
+/// Gets the scale's mode.
+/// </summary>
+/// <returns>The scale's mode.</returns>
+ScaleMode Scale::getMode() const
+{
+	return m_Mode;
+}
+
+/// <summary>
+/// Takes in a scale degree and returns the corresponding note from the scale.
+/// </summary>
+/// <param name="degree">The degree for which to return the note.</param>
+/// <returns>The MIDI note value (Middle C is 60).</returns>
+int Scale::getNoteFromDegree(int degree) const
 {
 	if (degree < 1 || degree > 12 || !(m_Mode == ScaleMode::CHROMATIC) && degree > 7)
-		throw std::invalid_argument("Scale degrees should be contained within 1 (root) and 7 (leading tone) for diatonic modes or 1 and 12 for chromatic.");
+		throw std::invalid_argument
+		(
+			"Scale degrees should be contained within 1 (root) and 7 (leading tone) for" 
+			"diatonic modes or 1 and 12 for chromatic."
+		);
 	
 	switch (m_Mode)
 	{
@@ -107,28 +138,21 @@ int Scale::getNoteFromDegree(int degree)
 	}
 }
 
+/// <summary>
+/// Sets the scale's key.
+/// </summary>
+/// <param name="key">The new key.</param>
 void Scale::setKey(Key key)
 {
 	m_Key = key;
 	m_Root = MIDDLE_C + static_cast<int>(m_Key);
 }
 
+/// <summary>
+/// Sets the scale's mode.
+/// </summary>
+/// <param name="mode">The new mode.</param>
 void Scale::setMode(ScaleMode mode)
 {
 	m_Mode = mode;
-}
-
-ScaleMode Scale::getMode()
-{
-	return m_Mode;
-}
-
-std::string Scale::toString()
-{
-	std::string result;
-	for (int degree = 1; degree <= 7; degree++)
-	{
-		result += std::to_string(getNoteFromDegree(degree)) + " ";
-	}
-	return result;
 }

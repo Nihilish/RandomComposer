@@ -12,8 +12,6 @@
 
 #include <JuceHeader.h>
 
-//==================================================================================================================
-
 /// <summary>
 /// This component is a button that uses images for its toggled and untoggled
 /// state. No hover or click visual feedback.
@@ -24,8 +22,15 @@ public:
     ToggleImageButton(juce::Component& parentComponent);
     ~ToggleImageButton() override;
 
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::Button
     void paintButton(juce::Graphics& g, bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown) override;
+    // FROM: juce::Component
     void resized() override;
+
+    // MEMBER FUNCTIONS
+    //==============================================================================================================
     void setImages(const juce::Image& untoggledImage, const juce::Image& toggledImage);
 
 private:

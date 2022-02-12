@@ -12,7 +12,6 @@
 #include "ModesComponent.h"
 #include "PluginEditor.h"
 
-//==================================================================================================================
 ModesComponent::ModesComponent() :
     m_Scale(nullptr)
 {

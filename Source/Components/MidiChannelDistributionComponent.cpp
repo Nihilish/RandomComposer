@@ -11,7 +11,6 @@
 #include <JuceHeader.h>
 #include "MidiChannelDistributionComponent.h"
 
-//==================================================================================================================
 MidiChannelDistributionComponent::MidiChannelDistributionComponent() :
     m_RegisteredPercentageSliders(),
     m_MidiChannels(),
@@ -79,7 +78,7 @@ void MidiChannelDistributionComponent::resized()
     m_Channel3.setBounds(area.removeFromTop(channelHeight));
 }
 
-std::vector<MidiChannel*>* MidiChannelDistributionComponent::getMidiChannels()
+std::vector<MidiChannel*>* MidiChannelDistributionComponent::getMidiChannels() const
 {
     return m_MidiChannels;
 }

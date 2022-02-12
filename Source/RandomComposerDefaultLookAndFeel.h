@@ -20,5 +20,9 @@ class RandomComposerDefaultLookAndFeel : public juce::LookAndFeel_V4
 public:
     RandomComposerDefaultLookAndFeel();
     ~RandomComposerDefaultLookAndFeel();
+
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::LookAndFeel_V4
     juce::Font getTextButtonFont(juce::TextButton&, int buttonHeight) override;
 };

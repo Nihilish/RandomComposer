@@ -13,8 +13,6 @@
 #include <JuceHeader.h>
 #include "Scale.h"
 
-//==================================================================================================================
-
 /// <summary>
 /// This component houses the 3 buttons to choose from the available modes
 /// (major, minor or chromatic).
@@ -26,6 +24,9 @@ public:
     ModesComponent();
     ~ModesComponent() override;
 
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::Component
     void paint(juce::Graphics&) override;
     void resized() override;
 
@@ -36,6 +37,8 @@ private:
     juce::TextButton m_MinorButton{ "minor" };
     juce::TextButton m_ChromaticButton{ "chromatic" };
 
+    // MEMBER FUNCTIONS
+    //==============================================================================================================
     void buttonStateChanged(juce::Button* button);
     void buttonClicked(juce::Button* button);
 

@@ -13,7 +13,6 @@
 #include "PluginEditor.h"
 #include "Defaults.h"
 
-//==================================================================================================================
 TempoComponent::TempoComponent()  :
     m_Metronome(nullptr)
 {

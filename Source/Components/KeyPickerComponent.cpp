@@ -14,7 +14,6 @@
 #include "Colours.h"
 #include "Defaults.h"
 
-//==================================================================================================================
 KeyPickerComponent::KeyPickerComponent() :
     m_Scale(nullptr)
 {

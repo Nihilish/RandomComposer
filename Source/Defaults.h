@@ -1,22 +1,24 @@
 /*
-  ==============================================================================
+  ==================================================================================================================
 
     Defaults.h
     Created: 9 Feb 2022 9:10:23pm
-    Author:  simon_i7fbffu
+    Author:  Nihilish
 
-  ==============================================================================
+  ==================================================================================================================
 */
 
 #pragma once
 
+/// <summary>
+/// Contains application-wide defaults.
+/// </summary>
 namespace app
 {
     namespace Defaults
     {
         const int defaultTempo = 120;
-        // C
-        const int defaultKey = 0;
+        const int defaultKey = 0; // C
     } // namespace Defaults
 
 } // namespace app

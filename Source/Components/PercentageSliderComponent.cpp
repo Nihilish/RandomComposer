@@ -11,8 +11,6 @@
 #include <JuceHeader.h>
 #include "PercentageSliderComponent.h"
 
-//==================================================================================================================
-
 /// <summary>
 /// Initializes a new PercentageSliderComponent instance.
 /// </summary>
@@ -54,7 +52,7 @@ void PercentageSliderComponent::addSliderListener(juce::Slider::Listener* listen
 /// Gets whether the slider is locked.
 /// </summary>
 /// <returns>True if the slider is locked, false otherwise.</returns>
-bool PercentageSliderComponent::getIsSliderLocked()
+bool PercentageSliderComponent::getIsSliderLocked() const
 {
     return !m_PercentSlider.isEnabled();
 }
@@ -72,7 +70,7 @@ juce::Slider* PercentageSliderComponent::getSlider()
 /// Gets the current slider value.
 /// </summary>
 /// <returns>The slider's value.</returns>
-int PercentageSliderComponent::getSliderValue()
+int PercentageSliderComponent::getSliderValue() const
 {
     return m_PercentSlider.getValue();
 }
@@ -96,7 +94,7 @@ void PercentageSliderComponent::paint(juce::Graphics& g)
 {
 }
 
-MidiChannel* PercentageSliderComponent::getMidiChannel()
+MidiChannel* PercentageSliderComponent::getMidiChannel() const
 {
     return m_MidiChannel;
 }

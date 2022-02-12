@@ -13,8 +13,6 @@
 #include <JuceHeader.h>
 #include "PercentageSliderComponent.h"
 
-//==================================================================================================================
-
 /// <summary>
 /// This channel nests three lockable sliders that set the distribution of the
 /// notes among 3 MIDI Channels (ch. 1, ch. 2 and ch. 3). The sum of the 3 sliders
@@ -27,18 +25,25 @@ public:
     MidiChannelDistributionComponent();
     ~MidiChannelDistributionComponent() override;
 
-    void lock(PercentageSliderComponent& slider);
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::Component
     void paint(juce::Graphics&) override;
     void resized() override;
-    std::vector<MidiChannel*>* getMidiChannels();
+
+    // MEMBER FUNCTIONS
+    //==============================================================================================================
+    void lock(PercentageSliderComponent& slider);
+    std::vector<MidiChannel*>* getMidiChannels() const;
 
 private:
     // COMPONENTS
     //==============================================================================================================
     PercentageSliderComponent m_Channel1, m_Channel2, m_Channel3;
 
-    // MEMBER FUNCTIONS
+    // OVERRIDES
     //==============================================================================================================
+    // FROM: juce::Slider::Listener
     void sliderValueChanged(juce::Slider* slider) override;
 
     // MEMBER VARIABLES

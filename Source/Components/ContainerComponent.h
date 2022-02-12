@@ -13,8 +13,6 @@
 #include <JuceHeader.h>
 #include "ControlsComponent.h"
 
-//==================================================================================================================
-
 /// <summary>
 /// This class is the top-level component (after the main component) and houses
 /// the entire GUI.
@@ -25,6 +23,9 @@ public:
     ContainerComponent();
     ~ContainerComponent() override;
 
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::Component
     void paint(juce::Graphics&) override;
     void resized() override;
 

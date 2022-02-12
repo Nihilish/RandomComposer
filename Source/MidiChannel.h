@@ -1,15 +1,18 @@
 /*
-  ==============================================================================
+  ==================================================================================================================
 
     MidiChannel.h
     Created: 9 Feb 2022 9:09:40pm
-    Author:  simon_i7fbffu
+    Author:  Nihilish
 
-  ==============================================================================
+  ==================================================================================================================
 */
 
 #pragma once
 
+/// <summary>
+/// Represents a MIDI channel with its own distribution and number.
+/// </summary>
 class MidiChannel
 {
 public:
@@ -17,10 +20,15 @@ public:
     MidiChannel(int channelNumber, double distribution);
     ~MidiChannel();
 
+    // MEMBER FUNCTIONS
+    //==============================================================================================================
+    int getChannelNumber() const;
+    double getDistribution() const;
     void setDistribution(double distribution);
-    double getDistribution();
-    int getChannelNumber();
+
 private:
+    // MEMBER FUNCTIONS
+    //==============================================================================================================
     int m_ChannelNumber;
     double m_Distribution;
 };

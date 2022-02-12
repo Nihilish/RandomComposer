@@ -1,15 +1,16 @@
 /*
-  ==============================================================================
+  ==================================================================================================================
 
-    This file contains the basic framework code for a JUCE plugin processor.
+    RandomComposerAudioProcessor.cpp
+    Created: 03 Feb 2022 9:09:55pm
+    Author:  Nihilish
 
-  ==============================================================================
+  ==================================================================================================================
 */
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-//==============================================================================
 RandomComposerAudioProcessor::RandomComposerAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
      : AudioProcessor (BusesProperties()
@@ -30,7 +31,6 @@ RandomComposerAudioProcessor::~RandomComposerAudioProcessor()
 {
 }
 
-//==============================================================================
 const juce::String RandomComposerAudioProcessor::getName() const
 {
     return JucePlugin_Name;
@@ -92,7 +92,6 @@ void RandomComposerAudioProcessor::changeProgramName (int index, const juce::Str
 {
 }
 
-//==============================================================================
 void RandomComposerAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
@@ -136,7 +135,6 @@ void RandomComposerAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
     midiMessages.swapWith(m_TestBuffer);
 }
 
-//==============================================================================
 bool RandomComposerAudioProcessor::hasEditor() const
 {
     return true; // (change this to false if you choose to not supply an editor)
@@ -147,7 +145,6 @@ juce::AudioProcessorEditor* RandomComposerAudioProcessor::createEditor()
     return new RandomComposerAudioProcessorEditor (*this);
 }
 
-//==============================================================================
 void RandomComposerAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     // You should use this method to store your parameters in the memory block.
@@ -172,8 +169,7 @@ void RandomComposerAudioProcessor::setMusicGenerator(MusicGenerator* musicGenera
     m_MusicGenerator = musicGenerator;
 }
 
-//==============================================================================
-// This creates new instances of the plugin..
+// This creates new instances of the plugin.
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new RandomComposerAudioProcessor();

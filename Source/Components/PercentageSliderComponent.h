@@ -14,8 +14,6 @@
 #include "ToggleImageButton.h"
 #include "MidiChannel.h"
 
-//==================================================================================================================
-
 /// <summary>
 /// This component includes a slider and a lock button to lock in the slider's value.
 /// </summary>
@@ -25,16 +23,21 @@ public:
     PercentageSliderComponent(juce::Component& parentComponent, MidiChannel* midiChannel);
     ~PercentageSliderComponent() override;
 
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::Component
     void paint(juce::Graphics&) override;
     void resized() override;
 
+    // MEMBER FUNCTIONS
+    //==============================================================================================================
     void addSliderListener(juce::Slider::Listener* listener);
-    bool getIsSliderLocked();
+    bool getIsSliderLocked() const;
+    MidiChannel* getMidiChannel() const;
     juce::Slider* getSlider();
-    int getSliderValue();
+    int getSliderValue() const;
     void setIsSliderLocked(bool value);
     void setSliderValue(int value);
-    MidiChannel* getMidiChannel();
 private:
     // COMPONENTS
     //==============================================================================================================

@@ -12,8 +12,6 @@
 #include "ToggleImageButton.h"
 #include "MidiChannelDistributionComponent.h"
 
-//==================================================================================================================
-
 /// <summary>
 /// Initializes a new instance of ToggleImageButton.
 /// </summary>
@@ -40,8 +38,8 @@ void ToggleImageButton::onImageToggleButtonClicked()
 }
 
 void ToggleImageButton::paintButton(juce::Graphics& g,
-    bool            shouldDrawButtonAsHighlighted,
-    bool            shouldDrawButtonAsDown)
+                                    bool            shouldDrawButtonAsHighlighted,
+                                    bool            shouldDrawButtonAsDown)
 {
     g.drawImageWithin(getToggleState() ? m_ToggledImage : m_UntoggledImage,
         getLocalBounds().getX(),

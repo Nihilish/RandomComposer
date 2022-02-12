@@ -13,8 +13,6 @@
 #include <JuceHeader.h>
 #include "Metronome.h"
 
-//==================================================================================================================
-
 /// <summary>
 /// This component nests a tempo slider with a tempo sync button.
 /// </summary>
@@ -25,6 +23,9 @@ public:
     TempoComponent();
     ~TempoComponent() override;
 
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::Component
     void paint(juce::Graphics&) override;
     void resized() override;
 

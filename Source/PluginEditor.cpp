@@ -1,9 +1,11 @@
 /*
-  ==============================================================================
+  ==================================================================================================================
 
-    This file contains the basic framework code for a JUCE plugin editor.
+    RandomComposerAudioProcessorEditor.cpp
+    Created: 03 Feb 2022 9:09:55pm
+    Author:  Nihilish
 
-  ==============================================================================
+  ==================================================================================================================
 */
 
 #include "PluginProcessor.h"
@@ -11,7 +13,6 @@
 #include "Defaults.h"
 #include "Functions.h"
 
-//==============================================================================
 RandomComposerAudioProcessorEditor::RandomComposerAudioProcessorEditor (RandomComposerAudioProcessor& p)
     : AudioProcessorEditor (&p), 
     audioProcessor (p),
@@ -41,7 +42,6 @@ Scale* RandomComposerAudioProcessorEditor::getScale()
     return &m_Scale;
 }
 
-//==============================================================================
 void RandomComposerAudioProcessorEditor::paint (juce::Graphics& g)
 {
 }

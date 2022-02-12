@@ -1,5 +1,14 @@
+/*
+  ==================================================================================================================
+
+	MidiChannel.cpp
+	Created: 7 Feb 2022 9:27:34am
+	Author:  Nihilish
+
+  ==================================================================================================================
+*/
+
 #include "MusicGenerator.h"
-#include "Scale.h"
 
 MusicGenerator::MusicGenerator(Scale& scale, std::vector<MidiChannel*>& midiChannels) :
 	m_LastDegrees(3),
@@ -12,7 +21,12 @@ MusicGenerator::~MusicGenerator()
 {
 }
 
-juce::MidiMessage MusicGenerator::getNote(MusicGeneratorMode mode)
+/// <summary>
+/// Gets a note depending on the mode specified.
+/// </summary>
+/// <param name="mode">The mode (simple or advanced)</param>
+/// <returns>A MidiMessage containing a noteOn.</returns>
+juce::MidiMessage MusicGenerator::getNote(MusicGeneratorMode mode) const
 {
 	int degree;
 
@@ -31,6 +45,7 @@ juce::MidiMessage MusicGenerator::getNote(MusicGeneratorMode mode)
 
 	int channel = 1;
 
+	// Determine on which channel to play the note.
 	if (m_MidiChannels.size() == 3)
 	{
 		juce::Random random;
@@ -46,7 +61,11 @@ juce::MidiMessage MusicGenerator::getNote(MusicGeneratorMode mode)
 	return(juce::MidiMessage::noteOn(channel, m_Scale.getNoteFromDegree(degree), (juce::uint8) 100));
 }
 
-int MusicGenerator::simpleAI()
+/// <summary>
+/// Simple (pseudo)random AI.
+/// </summary>
+/// <returns></returns>
+int MusicGenerator::simpleAI() const
 {
 	juce::Random random;
 
@@ -55,14 +74,22 @@ int MusicGenerator::simpleAI()
 	return random.nextInt(juce::Range<int>(1, rangeMax));
 }
 
-int MusicGenerator::advancedAI()
+/// <summary>
+/// Enhanced (pseudo)random AI. @TODO: Work in progress.
+/// </summary>
+/// <returns></returns>
+int MusicGenerator::advancedAI() const
 {
 	return 0;
 }
 
-bool MusicGenerator::lastDegreesContainChord()
+/// <summary>
+/// Determines whether the 3 last degrees played form a chord.
+/// </summary>
+/// <returns></returns>
+bool MusicGenerator::lastDegreesContainChord() const
 {
-	std::vector<int> lastDegrees = m_LastDegrees.get();
+	std::vector<int> lastDegrees = m_LastDegrees.getVector();
 	// Remove permutations by sorting.
 	std::sort(lastDegrees.begin(), lastDegrees.end());
 

@@ -13,8 +13,6 @@
 #include <JuceHeader.h>
 #include "Scale.h"
 
-//==================================================================================================================
-
 /// <summary>
 /// This component houses the key selector knob.
 /// </summary>
@@ -25,6 +23,9 @@ public:
     KeyPickerComponent();
     ~KeyPickerComponent() override;
 
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::Component
     void paint(juce::Graphics&) override;
     void resized() override;
 
@@ -33,6 +34,9 @@ private:
     //==============================================================================================================
     juce::Slider m_KeySlider;
 
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::Slider::Listener
     void sliderValueChanged(juce::Slider* slider) override;
 
     Scale* m_Scale;

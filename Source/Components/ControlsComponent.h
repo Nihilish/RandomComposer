@@ -16,8 +16,6 @@
 #include "TempoComponent.h"
 #include "MidiChannelDistributionComponent.h"
 
-//==================================================================================================================
-
 /// <summary>
 /// This class nests all the controls available to the user.
 /// </summary>
@@ -27,6 +25,9 @@ public:
     ControlsComponent();
     ~ControlsComponent() override;
 
+    // OVERRIDES
+    //==============================================================================================================
+    // FROM: juce::Component
     void paint(juce::Graphics&) override;
     void resized() override;
 
